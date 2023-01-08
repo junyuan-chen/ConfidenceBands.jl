@@ -1,0 +1,30 @@
+name = "ConfidenceBands"
+uuid = "6840a270-7180-4af9-9adc-8b0ddd17b6f2"
+authors = ["Junyuan Chen <norman.chen.git@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsAPI = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
+StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+
+[compat]
+CSV = "0.8, 0.9, 0.10"
+CodecZlib = "0.7"
+GLM = "1"
+Roots = "1, 2"
+StatsAPI = "1.2"
+StatsFuns = "0.9, 1"
+julia = "1"
+
+[extras]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+CodecZlib = "944b1d66-785c-5afd-91f1-9de20f533193"
+GLM = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["CSV", "CodecZlib", "GLM", "Test"]
