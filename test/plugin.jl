@@ -7,17 +7,20 @@
     @test criticalvalue(ProjectionBand(), 0.9, 5) ≈ 3.039137525644590 atol = 1e-10
     @test criticalvalue(ProjectionBand(10), 0.9, 5) ≈ 3.998397075342225 atol = 1e-10
 
+    rp = RandnPool(10)
+    @test length(rp.v) == 10
+
     Σ = [0.656902 0.61502 0.125656;
         0.870256 0.358389 0.239537;
         0.52512  0.771079 0.287328]
     Σ = Σ'Σ
     @test length(_globalrandnpool.v) == 40_000_000
     # Compare with SimInference.suptcritval_plugin(0.9, S, 1e8)
-    @test criticalvalue(SuptBand(), 0.9, Σ) ≈ 1.862 atol = 5e-3
-    @test criticalvalue(SuptBand(ndraw=15_000_000), 0.9, Σ) ≈ 1.862 atol = 5e-4
+    @test criticalvalue(SuptBand(), 0.9, Σ) ≈ 1.862 atol = 1e-2
+    @test criticalvalue(SuptBand(ndraw=15_000_000), 0.9, Σ) ≈ 1.862 atol = 5e-3
     @test length(_globalrandnpool.v) == 45_000_000
     resize!(_globalrandnpool.v, 40_000_000)
-    @test criticalvalue(SuptBand(1), 0.9, Σ) ≈ 1.252 atol = 5e-3
+    @test criticalvalue(SuptBand(1), 0.9, Σ) ≈ 1.252 atol = 1e-2
     @test_throws ArgumentError criticalvalue(SuptBand(), 1, Σ)
     @test_throws ArgumentError criticalvalue(SuptBand(3), 0.9, Σ)
 

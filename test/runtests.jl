@@ -3,7 +3,7 @@ using ConfidenceBands
 
 using CSV
 using CodecZlib
-using ConfidenceBands: _globalrandnpool
+using ConfidenceBands: RandnPool, _globalrandnpool
 using GLM
 
 const tests = [
